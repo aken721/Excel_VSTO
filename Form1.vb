@@ -1,12 +1,7 @@
-﻿Imports System.IO
-Imports System.Text
-Imports System.Diagnostics
-Imports System.Web
+﻿Imports System.Diagnostics
+Imports System.IO
 
 Public Class Form1
-    Private Sub FolderBrowserDialog1_HelpRequest(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
@@ -95,12 +90,13 @@ Public Class Form1
             app.DisplayAlerts = True
 
             '调用批处理文件改文件名，并且不显示cmd窗口
-            Dim startInfo As New ProcessStartInfo()
-            startInfo.FileName = f1
-            startInfo.UseShellExecute = False
-            startInfo.CreateNoWindow = True
-            startInfo.RedirectStandardOutput = True
-            startInfo.RedirectStandardError = True
+            Dim startInfo As New ProcessStartInfo With {
+                .FileName = f1,
+                .UseShellExecute = False,
+                .CreateNoWindow = True,
+                .RedirectStandardOutput = True,
+                .RedirectStandardError = True
+            }
             Dim proc As Process = Process.Start(startInfo)
             proc.WaitForExit()
             proc.Close()

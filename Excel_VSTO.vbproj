@@ -236,21 +236,22 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form4.Designer.vb">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resource1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
+    <Compile Include="Ribbon2.Designer.vb">
+      <DependentUpon>Ribbon2.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ribbon1.Designer.vb">
-      <DependentUpon>Ribbon1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Ribbon1.vb">
+    <Compile Include="Ribbon2.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ThisAddIn.vb">
@@ -265,17 +266,16 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource1.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ribbon1.resx">
-      <DependentUpon>Ribbon1.vb</DependentUpon>
+    <EmbeddedResource Include="My Project\Ribbon1.resx" />
+    <EmbeddedResource Include="Ribbon2.resx">
+      <DependentUpon>Ribbon2.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Excel_VSTO_3_TemporaryKey.pfx" />
-    <None Include="Excel_VSTO_TemporaryKey.pfx" />
+    <None Include="My Project\DataSources\Form4.datasource" />
     <None Include="packages.config" />
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.vb</DependentUpon>
@@ -288,7 +288,7 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <LastGenOutput>Resources2.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -301,10 +301,43 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\文件移动.png" />
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\文件移送.png" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\EXCEL表单 icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\excel表格.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\eye_hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\eye_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\MP3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\Radio_Button_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\Radio_Button_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\插件功能.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\改文件名.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Resources\未读文件.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

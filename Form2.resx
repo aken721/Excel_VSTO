@@ -156,7 +156,7 @@
 
     3.转置：将字段名设定为一个变量字段进行转置，类似于数据交叉表的逆过程；
 
-    4.正则表达式：允许通过选择提取内容的选项，或者自定义过滤规则的方式提取特定字符；
+    4.正则表达式：允许通过选择提取内容的选项，或者自定义过滤规则的方式提取特定字符。如果符合提取条件的内容不连续，默认以“|”分隔符隔开，使用者可自行对提取结果采用“分列”等功能进行再加工。同时，提取的数字也为文本格式，使用者可自行转换为数值格式；
 
     5.一键工资条：可一键将工资表分割为工资条格式；
 
@@ -164,6 +164,9 @@
   </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>275, 17</value>
+  </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>398, 17</value>
   </metadata>
   <metadata name="Timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>537, 17</value>

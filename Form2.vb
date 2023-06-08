@@ -1,10 +1,8 @@
 ﻿Imports System.Drawing
-Imports System.Windows.Forms
-Imports System.Threading
 Imports System.IO
-Imports System.Windows.Forms.VisualStyles
+Imports System.Threading
+Imports System.Windows.Forms
 Imports Microsoft.Office.Interop.Excel
-Imports System.Text.RegularExpressions
 
 Public Class Form2
     Private Sub TabControl1_DrawItem(sender As Object, e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem

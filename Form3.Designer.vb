@@ -54,7 +54,7 @@ Partial Class Form3
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 20)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "过滤条件"
+        Me.Label2.Text = "过滤规则"
         '
         'TextBox1
         '
@@ -108,7 +108,7 @@ Partial Class Form3
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"数字", "英文", "中文", "身份证号", "自定义"})
+        Me.ComboBox1.Items.AddRange(New Object() {"数字", "英文", "中文", "网址", "身份证号", "电子邮箱", "电话号码", "IP地址", "自定义"})
         Me.ComboBox1.Location = New System.Drawing.Point(179, 113)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(240, 23)
@@ -133,9 +133,6 @@ Partial Class Form3
         Me.Label3.Size = New System.Drawing.Size(82, 24)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "提示完成"
-        '
-        'Timer1
-        '
         '
         'Form3
         '

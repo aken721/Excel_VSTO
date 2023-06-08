@@ -1,7 +1,5 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
-Imports System.Security
 
 ' 有关程序集的一般信息由以下
 ' 控制。更改这些特性值可修改
@@ -9,12 +7,12 @@ Imports System.Security
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("Excel_VSTO")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Excel_VSTO")> 
-<Assembly: AssemblyCopyright("Copyright ©  2022")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("Excel_VSTO")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("Excel_VSTO")>
+<Assembly: AssemblyCopyright("Copyright ©  2022")>
+<Assembly: AssemblyTrademark("")>
 
 '将 ComVisible 设置为 false 将使此程序集中的类型
 '对 COM 组件不可见。  如果需要从 COM 访问此程序集中的类型，

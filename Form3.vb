@@ -1,6 +1,6 @@
-﻿Imports System.Windows.Forms
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 Imports System.Timers
+Imports System.Windows.Forms
 
 Public Class Form3
     Const HWND_TOPMOST = -1
@@ -21,7 +21,7 @@ Public Class Form3
         Dim i As Integer, c As Integer
         c = app.ActiveSheet.Cells(1, app.ActiveSheet.Columns.Count).End(Excel.XlDirection.xlToLeft).Column
         For i = 1 To c
-            ComboBox2.Items.Add(i)
+            ComboBox2.Items.Add(app.ActiveSheet.Cells(1, i).Text)
         Next
         ComboBox2.Text = ""
         app.DisplayAlerts = True
@@ -40,6 +40,8 @@ Public Class Form3
         ws = app.ActiveSheet
         rown = ws.Range("A" & app.ActiveSheet.Rows.Count).End(Excel.XlDirection.xlUp).Row
         coln = ws.Cells(1, app.ActiveSheet.Columns.Count).End(Excel.XlDirection.xlToLeft).Column
+
+        '窗体内选择需过滤的数据列和过滤规则
         If Me.ComboBox2.Text = "" Then
             col = 0
         Else
@@ -47,15 +49,32 @@ Public Class Form3
         End If
         tp = ComboBox1.Text
         pat = ""
+
+        '选择已定义的正则表达式过滤条件，或自行写入过滤规则
         Select Case tp
             Case "数字"
                 pat = "\d+\.?\d*"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
             Case "英文"
                 pat = "[A-Za-z]+"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
             Case "中文"
                 pat = "[^\x00-\xff]+"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
+            Case "网址"
+                pat = "((http|https):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
             Case "身份证号"
                 pat = "\d{15}$|\d{17}([0-9]|X|x)"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
+            Case "电子邮箱"
+                pat = "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
+            Case "电话号码"
+                pat = "(?:(?:\+|00)86)?1[3-9]\d{9}|(?:0[1-9]\d{1,2}-)?\d{7,8}"
+                ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
+            Case "IP地址"
+                pat = "\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
                 ws.Range(ws.Cells(1, coln + 1), ws.Cells(rown, coln + 1)).NumberFormatLocal = "@"
             Case "自定义"
                 If TextBox1.Text <> "" Then
@@ -69,8 +88,14 @@ Public Class Form3
         If TypeName(col) = "Integer" And col < coln + 1 And col > 0 Then
             ws.Range(ws.Cells(1, col), ws.Cells(rown, col)).Select()
             rgx = New Regex(pat)
+            Dim matchValue As New List(Of String)
             For Each rng In app.Selection
-                app.Cells(rng.Row, coln + 1) = rgx.Match(rng.Value).Value
+                matchValue.Clear()
+                For Each match As Match In rgx.Matches(rng.Value)
+                    matchValue.Add(match.Value)
+                Next
+                Dim result As String = String.Join("|", matchValue)
+                app.Cells(rng.Row, coln + 1) = result
             Next
             ShowLabel(Label3, True, "提取完毕")
             StartTimer()

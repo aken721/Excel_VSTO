@@ -625,7 +625,7 @@ Partial Class Form2
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(103, 19)
         Me.Label7.TabIndex = 3
-        Me.Label7.Text = "version 1.2.3"
+        Me.Label7.Text = "version 1.2.5"
         '
         'Timer1
         '
